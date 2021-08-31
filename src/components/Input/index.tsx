@@ -41,28 +41,28 @@ export const Input:React.FC<InputProps> = ({name, icon:Icon, label, ...props}) =
     <Container>
       <label>
         {label}
-        <InputContainer isErrored={!! error} isFilled={isFilled} isFocused={isFocused} >
-          {Icon && <Icon size={20}/>}
-
-            <input
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-              defaultValue={defaultValue}
-              ref={inputRef}
-              {...props}
-            />
-          {props.type === 'password' && (
-            <PassIcon>
-              <FiEye size={20} />
-            </PassIcon>
-          )}
-          {error  &&
-            <Error title={error} >
-              <FiAlertCircle color="c53030" size={20} />
-            </Error>
-          }
-        </InputContainer>
       </label>
+      <InputContainer isErrored={!! error} isFilled={isFilled} isFocused={isFocused} >
+        {Icon && <Icon size={20}/>}
+
+          <input
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+            defaultValue={defaultValue}
+            ref={inputRef}
+            {...props}
+          />
+        {props.type === 'password' && (
+          <PassIcon>
+            <FiEye size={20} />
+          </PassIcon>
+        )}
+        {error  &&
+          <Error title={error} >
+            <FiAlertCircle color="c53030" size={20} />
+          </Error>
+        }
+      </InputContainer>
     </Container>
 
   );

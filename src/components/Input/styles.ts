@@ -10,9 +10,13 @@ interface ContainerProps extends ThemeProps<Theme> {
 
 export const Container = styled.div`
   & + div {
-    margin-top:0.25rem;
+    margin-top:0.5rem;
   }
   > label {
+    display: none;
+    font: ${({theme}) => theme.texts.sub_title};
+    text-transform: uppercase;
+    font-size:  1.5rem;
     padding-left:0.25rem;
   }
 `
@@ -24,8 +28,9 @@ export const InputContainer = styled.div<ContainerProps>`
   padding:1rem;
   width:100%;
   display:flex;
+  align-items: center;
 
-  border: 2px solid ${({theme})=>theme.colors.main};
+  border: 2px solid ${({theme})=>theme.colors.gray_1000};
   color: ${({theme})=>theme.colors.gray_400};
 
   ${props=>props.isErrored && css`
@@ -57,15 +62,16 @@ export const InputContainer = styled.div<ContainerProps>`
     flex:1;
     background:transparent;
     border:none;
-    color:${({theme})=>theme.colors.gray_200};
+    color:${({theme})=>theme.colors.gray_1000};
+    font: ${({theme}) => theme.texts.main_text};
     &::placeholder{
-      color:${({theme})=>theme.colors.gray_200};
-      font-family: 'Roboto', serif;
-      font-weight:400;
+      color:${({theme})=>theme.colors.gray_1000};
+      font: ${({theme}) => theme.texts.main_text};
     }
   }
   svg{
     margin-right:1rem;
+    color:${({theme})=> theme.colors.gray_1000};
   }
 `
 export const Error = styled(Tooltip)`
@@ -88,7 +94,7 @@ export const Error = styled(Tooltip)`
     margin-left:1rem;
     svg{
       margin:0;
-      color:${({theme})=> theme.colors.main};
+      color:${({theme})=> theme.colors.gray_1000};
       cursor: pointer;
 
     }

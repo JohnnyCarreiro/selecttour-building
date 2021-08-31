@@ -41,28 +41,28 @@ export const TextArea:React.FC<InputProps> = ({name, icon:Icon, label,...props})
     <Container>
       <label>
         {label}
-        <TextAreaContainer isErrored={!! error} isFilled={isFilled} isFocused={isFocused} >
-          {Icon && <Icon size={20}/>}
-          <textarea
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-            defaultValue={defaultValue}
-            ref={inputRef}
-            rows={6}
-            {...props}
-          />
-          {props.type === 'password' && (
-            <PassIcon>
-              <FiEye size={20} />
-            </PassIcon>
-          )}
-          {error  &&
-            <Error title={error} >
-              <FiAlertCircle color="c53030" size={20} />
-            </Error>
-          }
-        </TextAreaContainer>
       </label>
+      <TextAreaContainer isErrored={!! error} isFilled={isFilled} isFocused={isFocused} >
+        {Icon && <Icon size={20}/>}
+        <textarea
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          defaultValue={defaultValue}
+          ref={inputRef}
+          rows={6}
+          {...props}
+        />
+        {props.type === 'password' && (
+          <PassIcon>
+            <FiEye size={20} />
+          </PassIcon>
+        )}
+        {error  &&
+          <Error title={error} >
+            <FiAlertCircle color="c53030" size={20} />
+          </Error>
+        }
+      </TextAreaContainer>
     </Container>
   );
 };

@@ -9,22 +9,24 @@ export const Container = styled.div<{primaryColor:boolean}>`
     align-items:center;
     text-align:center;
     border: none;
-    border-radius:0.5rem;
+    border-radius:0.25rem;
     margin-top:2.5rem;
     padding:0.5rem 2.5rem;
     transition:.2s;
     cursor:pointer;
     a{
       text-align:center;
+      border: 2px solid transparent;
       color:${({theme})=>theme.colors.gray_1000};
-      font: 700 1.5rem/2.25rem Roboto, sans-serif;
+      font: ${({theme}) => theme.texts.title};
+      text-transform: uppercase;
     }
   }
   .primary:hover{
       background:transparent;
       border: 2px solid ${({primaryColor})=> primaryColor ? ({theme})=> theme.colors.primary :({theme})=> theme.colors.secondary };
       a{
-        color:${({primaryColor})=> primaryColor ? ({theme})=> theme.colors.primary :({theme})=> theme.colors.secondary };
+        color:${({primaryColor})=> primaryColor ? ({theme})=> theme.colors.gray_1000 :({theme})=> theme.colors.gray_1000 };
       }
     }
   .secondary{
