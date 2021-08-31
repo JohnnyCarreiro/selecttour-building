@@ -7,9 +7,17 @@ export const Container = styled.div`
   padding-left: 2rem;
 
   .registration{
-
+    h3{
+      font: ${({theme}) => theme.texts.sub_title};
+      text-transform: uppercase;
+    }
   }
   .travel{
+    margin-top: 1rem;
+    h3{
+      font: ${({theme}) => theme.texts.sub_title};
+      text-transform: uppercase;
+    }
     div{
       display: flex;
       align-items: center;
@@ -28,5 +36,22 @@ export const Container = styled.div`
 
   @media screen and (max-width:1024px) {
     padding:0;
+  }
+  @media (max-width: 891px){
+    .travel{
+      div{
+        display: inline-block;
+        width: 100%;
+        margin-top: 0.5rem;
+        div{
+          width: 100%;
+          margin:0;
+          & + :last-child{
+            margin-top: 0.5rem;
+            margin-left: 0;
+          }
+        }
+      }
+    }
   }
 `;
