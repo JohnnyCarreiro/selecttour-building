@@ -17,4 +17,16 @@ export const Container = styled.div`
     flex:1;
   }
 }
+@media (max-width: 891px){
+  .content{
+    margin: 80px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .request-form{
+      margin-top: 10px;
+    }
+  }
+}
 `
