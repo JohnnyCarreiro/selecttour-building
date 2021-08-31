@@ -27,12 +27,24 @@ interface FormFieldProps {
     email_field: string
     phone_label: string
     phone_field: string
-    company_label: string
-    company_field: string
-    subject_label: string
-    subject_field: string
-    message_label: string
-    message_field: string
+    from_label: string
+    from_field: string
+    to_label: string
+    to_field: string
+    departure_label: string
+    departure_field: string
+    returns_label: string
+    returns_field: string
+    adults_label: string
+    adults_field: string
+    child_label: string
+    child_field: string
+    class_label: string
+    class_field: string
+    accomodatio_label: string
+    accomodation_field: string
+    observations_label: string
+    observations_field: string
     whatsapp_message: string
   }
 }
@@ -45,12 +57,24 @@ export const RequestForm:React.FC<FormFieldProps> = ({ form_fields }) => {
     email_field,
     phone_label,
     phone_field,
-    company_label,
-    company_field,
-    subject_label,
-    subject_field,
-    message_label,
-    message_field,
+    from_label,
+    from_field,
+    to_label,
+    to_field,
+    departure_label,
+    departure_field,
+    returns_label,
+    returns_field,
+    adults_label,
+    adults_field,
+    child_label,
+    child_field,
+    class_label,
+    class_field,
+    accomodatio_label,
+    accomodation_field,
+    observations_label,
+    observations_field,
    } = form_fields
   const formRef = useRef<FormHandles>(null)
 
@@ -60,9 +84,18 @@ export const RequestForm:React.FC<FormFieldProps> = ({ form_fields }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [company, setCompany] = useState('')
-  const [subject, setSubject] = useState('')
-  const [message, setMessage] = useState('')
+
+  const [from, setFrom] = useState('')
+  const [to, setTo] = useState('')
+  const [departure, setDeparture] = useState('')
+  const [returns, setReturns] = useState('')
+  const [adults, setAdults] = useState('')
+  const [childs, setChilds] = useState('')
+  const [flightClass, setFlightClass] = useState('')
+  const [accomodation, setAccomodation] = useState('')
+
+  const [observations, setObservations] = useState('')
+
 
   const handleSubmit = useCallback( async (data: SignInFormData) =>{
     try {
@@ -114,9 +147,15 @@ export const RequestForm:React.FC<FormFieldProps> = ({ form_fields }) => {
         setName('')
         setEmail('')
         setPhone('')
-        setCompany('')
-        setSubject('')
-        setMessage('')
+        setFrom('')
+        setTo('')
+        setDeparture('')
+        setReturns('')
+        setAdults('')
+        setChilds('')
+        setFlightClass('')
+        setAccomodation('')
+        setObservations('')
         history.push('/')
       }
 
@@ -133,53 +172,115 @@ export const RequestForm:React.FC<FormFieldProps> = ({ form_fields }) => {
   return (
     <Container>
      <Form ref={formRef} onSubmit={handleSubmit} >
-        <Input
-          name="name"
-          type="text"
-          label={name_label}
-          placeholder={name_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setName(event.target.value)}}
-          value={name}
-        />
-        <Input
-          name="email"
-          type="email"
-          label={email_label}
-          placeholder={email_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setEmail(event.target.value)}}
-          value={email}
-        />
-        <Input
-          name="phone"
-          type="number"
-          label={phone_label}
-          placeholder={phone_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setPhone(event.target.value)}}
-          value={phone}
-        />
-        <Input
-          name="company"
-          type="text"
-          label={company_label}
-          placeholder={company_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setCompany(event.target.value)}}
-          value={company}
-        />
-        <Input
-          name="subject"
-          type="text"
-          label={subject_label}
-          placeholder={subject_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setSubject(event.target.value)}}
-          value={subject}
-        />
+       <div className="registration">
+         <h3>Dados Cadastrais</h3>
+          <Input
+            name="name"
+            type="text"
+            label={name_label}
+            placeholder={name_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setName(event.target.value)}}
+            value={name}
+          />
+          <Input
+            name="email"
+            type="email"
+            label={email_label}
+            placeholder={email_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setEmail(event.target.value)}}
+            value={email}
+          />
+          <Input
+            name="phone"
+            type="number"
+            label={phone_label}
+            placeholder={phone_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setPhone(event.target.value)}}
+            value={phone}
+          />
+       </div>
+       <div className="travel">
+        <h3>Dados da Viagem</h3>
+        <div>
+          <Input
+            name="from"
+            type="text"
+            label={from_label}
+            placeholder={from_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => { setFrom(event.target.value)}}
+            value={from}
+          />
+            <Input
+            name="to"
+            type="text"
+            label={to_label}
+            placeholder={to_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setTo(event.target.value)}}
+            value={to}
+          />
+        </div>
+        <div>
+          <Input
+            name="departure"
+            type="text"
+            label={departure_label}
+            placeholder={departure_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setDeparture(event.target.value)}}
+            value={departure}
+          />
+            <Input
+            name="return"
+            type="text"
+            label={returns_label}
+            placeholder={returns_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setReturns(event.target.value)}}
+            value={returns}
+          />
+        </div>
+        <div>
+          <Input
+            name="adults"
+            type="text"
+            label={adults_label}
+            placeholder={adults_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setAdults(event.target.value)}}
+            value={adults}
+          />
+            <Input
+            name="childs"
+            type="text"
+            label={child_label}
+            placeholder={child_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setChilds(event.target.value)}}
+            value={childs}
+          />
+        </div>
+        <div>
+          <Input
+            name="class"
+            type="text"
+            label={class_label}
+            placeholder={class_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setFlightClass(event.target.value)}}
+            value={flightClass}
+          />
+            <Input
+            name="accomodation"
+            type="text"
+            label={accomodatio_label}
+            placeholder={accomodation_field}
+            onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setAccomodation(event.target.value)}}
+            value={accomodation}
+          />
+        </div>
+      </div>
         <TextArea
-          name="message"
+          name="observations"
           type="text"
-          label={message_label}
-          placeholder={message_field}
-          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setMessage(event.target.value)}}
-          value={message}
+          label={observations_label}
+          placeholder={observations_field}
+          onChange={(event:React.ChangeEvent<HTMLInputElement>) => {setObservations(event.target.value)}}
+          value={observations}
         />
         { locale === 'en-us'
           ? (<Button text="Send" isPrimary primaryColor type="submit" />)
