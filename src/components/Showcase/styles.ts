@@ -58,7 +58,7 @@ export const Container = styled.section`
       transform: translateY(-16px);
     }
   }
-  &+:nth-child(){
+  :nth-child(){
     z-index: 10;
   }
 }
